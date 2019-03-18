@@ -6,10 +6,10 @@ from app.serializer.account import AccountParaSchema
 from app.model.user import User
 from app.libs.http import jsonify, error_jsonify
 from app.libs.db import session
-from app.const.errors import InvalidArgument
+from app.const.errors import ERROR_MAP
 from app.const.user import (
-    PERMISSION_PROVINCE,
-    PERMISSION_CITY
+    PERMISSION_STUDENT,
+    PERMISSION_TEACHER
 )
 
 bp_account = Blueprint('account', __name__, url_prefix='/account')
@@ -34,8 +34,8 @@ def register():
     if errors:
         return error_jsonify(InvalidArguments, errors, 400)
 
-    if current_user.permission != PERMISSION_PROVINCE:
-        return error_jsonify(InvalidArgument)
+    if current_user.permission != PERMISSION_TEACHER:
+        return error_jsonify(e)
 
     username = data['name']
     password_md5 = data['password']

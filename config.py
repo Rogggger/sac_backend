@@ -3,7 +3,7 @@
 SECRET_KEY = 'no SecRet, No pAssWORd'
 
 # configs for sqlalchemy
-SQLALCHEMY_DATABASE_URI = 'mysql://root:password@localhost/sac_backend?charset=utf8'
+SQLALCHEMY_DATABASE_URI = 'mysql://sac:sac_password@yuanw.wang/sac?charset=utf8'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 # configs for SSL cert
