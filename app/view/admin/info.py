@@ -2,11 +2,9 @@
 
 from flask_login import login_required, current_user
 from flask import request, Blueprint
-from app.model.corporate_Info import Info
 from app.serializer.info import InfoParaSchema, InfoSearchSchema
-from app.decorator.auth import admin_required
 from app.libs.http import error_jsonify, jsonify
-from app.consts.user import PERMISSION_CITY
+from app.const.user import PERMISSION_TEACHER
 
 # 数据汇总
 bp_admin_info = Blueprint('admin_info', __name__, url_prefix='/admin/info')

@@ -14,7 +14,7 @@ class Info(db.Model):
     experience = Column(Text)  # 勤工助学经历
     skill = Column(Text)  # 有何特长技能
     free_time = Column(Integer, nullable=False)
-    school = Column(String(50), nullable=False)  # 学院
+    school = Column(Integer, nullable=False)  # 学院
     name = Column(String(50), nullable=False)  # 真实姓名
     sex = Column(Integer, nullable=False)
     phone = Column(String(50), nullable=False)
