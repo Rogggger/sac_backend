@@ -1,6 +1,11 @@
 from flask_script import Manager, Server
 from app import create_app
 from app.libs.db import db
+from app.model.user import User
+from app.model.schedule import Schedule
+from app.model.position import Position
+from app.model.info import Info
+from app.model.department import Department
 import config
 
 app = create_app(config)
