@@ -3,7 +3,6 @@
 from flask_login import login_required
 from flask import Blueprint, request
 from app.libs.db import session
-from app.serializer.account import AccountParaSchema
 from app.libs.http import jsonify
 from app.model.user import User
 from app.libs.http import error_jsonify

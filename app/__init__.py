@@ -1,7 +1,7 @@
 from flask import Flask
 from app.libs.login import login_manager
 from app.libs.db import db
-from app.view.user.account import bp_account
+from app.view.user.info import bp_account
 
 
 def create_app(object_name):

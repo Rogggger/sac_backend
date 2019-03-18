@@ -1,13 +1,11 @@
 # coding: utf-8
 ERROR_MAP = {
     # system error
-    -1: u"服务器无法响应",
-    0: u"响应成功",
-    1001: u" ",
-    1002: u" ",
-    1003: u"参数缺失"
+    1001: u"参数不正确！",
+    1002: u"当前时间点未排班！",
+    1003: u"无该学生信息！"
 }
 
-Unresponsive = -1
-ResponsSuccess = 0
-MissingParameters = 1003
+InvalidParameters = 1001
+NoWork = 1002
+NoStudent = 1003
