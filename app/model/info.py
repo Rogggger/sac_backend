@@ -6,10 +6,11 @@ from app.libs.db import db
 class Info(db.Model):
     id = Column(Integer, Sequence('info_id_seq'), primary_key=True, autoincrement=True)
     student_id = Column(String(50), nullable=False)
+    user_id = Column(String(50), nullable=False)
     financial_difficulties = Column(Boolean, nullable=False)  # 是否经济困难
     work = Column(Text)  # 现任职位
-    department = Column(Integer, nullable=False)  # 申请部门
-    position = Column(Integer, nullable=False)  # 申请岗位
+    department_id = Column(Integer, nullable=False)  # 申请部门
+    position_id = Column(Integer, nullable=False)  # 申请岗位
     experience = Column(Text)  # 勤工助学经历
     skill = Column(Text)  # 有何特长技能
     free_time = Column(Integer, nullable=False)
