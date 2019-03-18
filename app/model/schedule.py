@@ -1,9 +1,5 @@
 # coding: utf-8
-import binascii
-import hashlib
-
-from flask_login import UserMixin
-from sqlalchemy import Column, Integer, String, Sequence, Boolean, Text
+from sqlalchemy import Column, Integer, Sequence, Boolean
 from app.libs.db import db
 
 
