@@ -1,0 +1,5 @@
+# coding: utf-8
+
+# User auth
+PERMISSION_STUDENT = 0
+PERMISSION_TEACHER = 1
