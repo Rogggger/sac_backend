@@ -19,3 +19,4 @@ class Info(db.Model):
     sex = Column(Integer, nullable=False)
     phone = Column(String(50), nullable=False)
     email = Column(String(50), nullable=False)
+    on_position = Column(Boolean, nullable=False, default=False)  # 是否被排班

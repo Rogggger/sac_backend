@@ -8,6 +8,7 @@ from app.const.errors import NoStudentInfo
 
 bp_account = Blueprint('info', __name__, url_prefix='/info')
 
+
 @bp_account.route('/', methods=['GET'])
 @login_required
 def info():
@@ -32,7 +33,8 @@ def info():
         'position_id': info.position_id,
         'experience': info.experience,
         'skill': info.skill,
-        'free_time': info.free_time
+        'free_time': info.free_time,
+        'on_position': info.on_position
     }
 
     return jsonify(ret)
