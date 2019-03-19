@@ -24,9 +24,9 @@ def get():
 @province_required
 def modify(pk):
     json = request.json
-    data, error = AccountParaSchema(exclude=('is_admin', 'id', 'area')).load(json)
+    data, error = RestParaSchema(exclude=('is_admin', 'id', 'area')).load(json)
     if error:
-        return error_jsonify(10000001, error)
+        return error_jsonify(1001, error)
 
     user = User.query.filter_by(id=pk).first()
     if user is None:

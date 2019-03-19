@@ -8,4 +8,4 @@ ERROR_MAP = {
 
 InvalidParameters = 1001
 NoWork = 1002
-NoStudent = 1003
+NoStudentInfo = 1003

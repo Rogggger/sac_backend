@@ -6,6 +6,7 @@ from app.model.schedule import Schedule
 from app.model.position import Position
 from app.model.info import Info
 from app.model.department import Department
+from app.model.rest import Rest
 import config
 
 app = create_app(config)
