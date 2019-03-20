@@ -1,7 +1,7 @@
 from flask_script import Manager, Server
 from app import create_app
 from app.libs.db import db
-from app.model.user import *
+from app.model import *
 import config
 
 app = create_app(config)
