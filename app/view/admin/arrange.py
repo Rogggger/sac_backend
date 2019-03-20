@@ -35,6 +35,7 @@ def arrange():
     for schedule_time in time_list:
         for wk in range(20):
             schedule = Schedule(
+                user_id=user_id,
                 year=time.strftime('%Y'),
                 term=not 1 < int(time.strftime('%m')) < 7,  # 判断学期
                 week=wk + 1,
