@@ -1,5 +1,6 @@
 # coding: utf-8
 
+
 def deal(any):
     if isinstance(any, dict):
         return deal_dict(any)
