@@ -35,7 +35,8 @@ def info():
         student = {
             'name': i.name,
             'sex': i.sex,
-            'student_id': i.student_id
+            'student_id': i.student_id,
+            'user_id': i.user_id
         }  # 学生简略信息
         students.append(student)
 
