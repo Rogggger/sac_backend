@@ -10,6 +10,7 @@ from sqlalchemy import and_
 
 bp_account = Blueprint('schedule', __name__, url_prefix='/schedule')
 
+
 @bp_account.route('/', methods=['GET'])
 @login_required
 def schedule():
