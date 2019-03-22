@@ -10,8 +10,8 @@ from app.const.errors import NoStudentInfo
 
 bp_account = Blueprint('rest', __name__, url_prefix='/rest')
 
-
 @bp_account.route('/', methods=['GET'])
+
 @login_required
 @admin_required
 def rest():
