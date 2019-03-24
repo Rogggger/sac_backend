@@ -11,7 +11,7 @@ from app.const.errors import NoStudentInfo
 bp_info_stu = Blueprint('info', __name__, url_prefix='info')
 
 
-@bp_info_stu.route('info/<int:user_id>', methods=['GET'])
+@bp_info_stu.route('/info/<int:user_id>', methods=['GET'])
 @login_required
 @admin_required
 def info_stu():

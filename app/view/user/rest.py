@@ -8,6 +8,7 @@ from app.model.rest import Rest
 from app.libs.http import error_jsonify
 from app.libs.db import session
 from app.serializer.rest import RestParaSchema
+from app.const.errors import InvalidParameters
 
 bp_rest = Blueprint('rest', __name__, url_prefix='/rest')
 
@@ -20,7 +21,7 @@ def rest():
     data, errors = RestParaSchema().load(json)
 
     if errors:
-        return error_jsonify(1001, errors)
+        return error_jsonify(InvalidParameters)
 
     week = data['week']
     time = data['free_time']
