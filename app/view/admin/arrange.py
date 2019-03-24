@@ -9,10 +9,10 @@ from app.decorator.auth import admin_required
 from app.serializer.arrange import ArrangeParaSchema
 from app.libs.db import session
 
-bp_account = Blueprint('arrange', __name__, url_prefix='/arrange')
+bp_arrange = Blueprint('arrange', __name__, url_prefix='/arrange')
 
 
-@bp_account.route('/', methods=['POST'])
+@bp_arrange.route('/', methods=['POST'])
 @login_required
 @admin_required
 def arrange():

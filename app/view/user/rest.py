@@ -9,10 +9,10 @@ from app.libs.http import error_jsonify
 from app.libs.db import session
 from app.serializer.rest import RestParaSchema
 
-bp_account = Blueprint('rest', __name__, url_prefix='/rest')
+bp_rest = Blueprint('rest', __name__, url_prefix='/rest')
 
 
-@bp_account.route('/', methods=['POST'])
+@bp_rest.route('/', methods=['POST'])
 @login_required
 def rest():
     # 学生用户请假

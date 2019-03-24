@@ -8,10 +8,10 @@ from app.decorator.auth import admin_required
 from app.libs.http import jsonify, error_jsonify
 from app.const.errors import NoStudentInfo
 
-bp_account = Blueprint('rest', __name__, url_prefix='/rest')
+bp_rest = Blueprint('rest', __name__, url_prefix='/rest')
 
-@bp_account.route('/', methods=['GET'])
 
+@bp_rest.route('/', methods=['GET'])
 @login_required
 @admin_required
 def rest():

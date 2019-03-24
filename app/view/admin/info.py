@@ -8,10 +8,10 @@ from app.libs.http import jsonify, error_jsonify
 from sqlalchemy import and_
 from app.const.errors import NoStudentInfo
 
-bp_account = Blueprint('info', __name__, url_prefix='/info')
+bp_info = Blueprint('info', __name__, url_prefix='/info')
 
 
-@bp_account.route('/', methods=['GET'])
+@bp_info.route('/', methods=['GET'])
 @login_required
 @admin_required
 def info():
