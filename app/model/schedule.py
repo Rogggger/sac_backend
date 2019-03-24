@@ -12,3 +12,4 @@ class Schedule(db.Model):
     time = Column(Integer, nullable=False)  # 时间段
     department = Column(Integer, nullable=False)  # 部门
     position = Column(Integer, nullable=False)  # 岗位
+    is_rest = Column(Boolean, nullable=False, default=0)

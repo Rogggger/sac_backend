@@ -1,17 +1,17 @@
 # coding: utf-8
 
 from flask import Blueprint, request
-from flask_login import login_required, current_user
+from flask_login import login_required
 from app.model.schedule import Schedule
 from app.model.info import Info
 from app.libs.http import jsonify, error_jsonify
 from app.const.errors import InvalidParameters
 from sqlalchemy import and_
 
-bp_account = Blueprint('schedule', __name__, url_prefix='/schedule')
+bp_schedule = Blueprint('schedule', __name__, url_prefix='/schedule')
 
 
-@bp_account.route('/', methods=['GET'])
+@bp_schedule.route('/', methods=['GET'])
 @login_required
 def schedule():
     # 学生用户查看排班表
