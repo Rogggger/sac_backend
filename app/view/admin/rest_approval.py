@@ -25,10 +25,11 @@ def rest():
         return error_jsonify(InvalidParameters)
 
     rest = Rest.query.filter_by(Rest.id == data['rest_id']).first()
-    session.query(Schedule).filter(and_(
+    rest.is_approval = 1
+    schedule = Schedule.query.filter(and_(
         Schedule.user_id == rest.user_id,
         Schedule.week == rest.week,
         Schedule.time == rest.time
-    )).delete()
-    session.query(Rest).filter_by(Rest.id == data['rest_id']).delete()
+    ))
+    schedule.is_rest = 1
     session.commit()
