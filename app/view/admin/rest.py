@@ -2,7 +2,6 @@
 
 from flask import Blueprint, request
 from flask_login import login_required
-from app.model.rest import Rest
 from app.model.info import Info
 from app.model.rest import Rest
 from app.model.schedule import Schedule
@@ -15,6 +14,7 @@ from app.libs.db import session
 from sqlalchemy import and_
 
 bp_rest = Blueprint('rest', __name__, url_prefix='/rest')
+
 
 @bp_rest.route('/', methods=['GET'])
 @login_required

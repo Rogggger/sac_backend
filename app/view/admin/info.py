@@ -44,7 +44,7 @@ def info():
     return jsonify(info)
 
 
-@bp_info.route('/<int:user_id>', methods=['GET'])
+@bp_admin.route('/info/<int:user_id>', methods=['GET'])
 @login_required
 @admin_required
 def info(user_id):

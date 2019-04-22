@@ -23,10 +23,10 @@ def login():
         return error_jsonify(InvalidParameters, errors, 400)
 
     username = data['username']
-    attempt_user = User.query.filter_by(name=username).first()
+    attempt_user = User.query.filter_by(username=username).first()
     if attempt_user is None:
         is_admin = True if 'admin' in username else False
-        new_user = User(name=username, is_admin=is_admin)
+        new_user = User(username=username, is_admin=is_admin)
         session.add(new_user)
         session.commit()
         login_user(new_user)
