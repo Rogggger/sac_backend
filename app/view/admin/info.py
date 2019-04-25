@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from flask import request
+from flask import request, Blueprint
 from flask_login import login_required
 from app.model.info import Info
 from app.decorator.auth import admin_required
@@ -8,10 +8,11 @@ from app.model.schedule import Schedule
 from app.libs.http import jsonify, error_jsonify
 from sqlalchemy import and_
 from app.const.errors import NoStudentInfo
-from app.view.admin import bp_admin
+
+bp_admin_info = Blueprint('admin_info', __name__, url_prefix='/admin/info')
 
 
-@bp_admin.route('/info', methods=['GET'])
+@bp_admin_info.route('/', methods=['GET'])
 @login_required
 @admin_required
 def info():
@@ -44,10 +45,10 @@ def info():
     return jsonify(info)
 
 
-@bp_admin.route('/info/<int:user_id>', methods=['GET'])
+@bp_admin_info.route('/<int:user_id>/', methods=['GET'])
 @login_required
 @admin_required
-def info(user_id):
+def student_info(user_id):
     # 管理员查看学生信息
 
     info = Info.query.filter_by(Info.user_id == user_id).first()

@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from flask import request
+from flask import request, Blueprint
 from flask_login import login_required, current_user
 from app.model.schedule import Schedule
 from sqlalchemy import and_
@@ -9,10 +9,11 @@ from app.libs.http import error_jsonify
 from app.libs.db import session
 from app.serializer.rest import RestParaSchema
 from app.const.errors import InvalidParameters
-from app.view.user import bp_user
+
+bp_rest = Blueprint('rest', __name__, url_prefix='/rest')
 
 
-@bp_user.route('/rest', methods=['POST'])
+@bp_rest.route('/', methods=['POST'])
 @login_required
 def rest():
     # 学生用户请假

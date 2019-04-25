@@ -13,13 +13,13 @@ from app.serializer.rest_approval import RestApprovalParaSchema
 from app.libs.db import session
 from sqlalchemy import and_
 
-bp_rest = Blueprint('rest', __name__, url_prefix='/rest')
+bp_admin_rest = Blueprint('admin_rest', __name__, url_prefix='/admin/rest')
 
 
-@bp_rest.route('/', methods=['GET'])
+@bp_admin_rest.route('/', methods=['GET'])
 @login_required
 @admin_required
-def rest():
+def get_rest():
     # 管理员查看请假信息
     rest = Rest.query.filter_by().all
 
@@ -43,10 +43,10 @@ def rest():
     return jsonify(students)
 
 
-@bp_rest.route('/<int:rest_id>', methods=['POST'])
+@bp_admin_rest.route('/<int:rest_id>/', methods=['POST'])
 @login_required
 @admin_required
-def rest(rest_id):
+def approve_rest(rest_id):
     json = request.get_json()
     data, errors = RestApprovalParaSchema().load(json)
 

@@ -1,7 +1,7 @@
 # coding: utf-8
 from datetime import datetime
 
-from flask import request
+from flask import request, Blueprint
 from flask_login import login_required
 
 from app.model.schedule import Schedule
@@ -10,11 +10,12 @@ from app.libs.http import error_jsonify, jsonify
 from app.decorator.auth import admin_required
 from app.serializer.arrange import ArrangeParaSchema
 from app.libs.db import session
-from app.view.admin import bp_admin
 from app.const.errors import InvalidParameters, NoStudentInfo
 
+bp_admin_arrange = Blueprint('admin_arrange', __name__, url_prefix='/admin/arrange')
 
-@bp_admin.route('/arrange', methods=['POST'])
+
+@bp_admin_arrange.route('/', methods=['POST'])
 @login_required
 @admin_required
 def arrange():
