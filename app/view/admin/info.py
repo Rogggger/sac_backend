@@ -17,6 +17,8 @@ bp_admin_info = Blueprint('admin_info', __name__, url_prefix='/admin/info')
 @admin_required
 def info():
     # 管理员查看排班系统
+    json = request.get_json()
+    data, errors = InfoParaSchema().load(json)
 
     department_id = request.args.get('department_id')
     position_id = request.args.get('position_id')

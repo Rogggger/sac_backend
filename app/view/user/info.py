@@ -1,5 +1,6 @@
 # coding: utf-8
-from flask import Blueprint
+
+from flask import Blueprint,request
 from flask_login import login_required, current_user
 from app.model.info import Info
 from app.libs.http import jsonify, error_jsonify
@@ -37,3 +38,7 @@ def info():
     }
 
     return jsonify(ret)
+
+
+def info_modify():
+    pass
