@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from flask import request
+from flask import Blueprint, request
 from flask_login import login_required
 from app.model.info import Info
 from app.decorator.auth import admin_required
@@ -10,13 +10,17 @@ from sqlalchemy import and_
 from app.const.errors import NoStudentInfo
 from app.view.admin import bp_admin
 
+bp_info = Blueprint('info', __name__, url_prefix='/info')
+
 
 @bp_admin.route('/info', methods=['GET'])
 @login_required
 @admin_required
 def info():
     # 管理员查看排班系统
-
+    json = request.get_json()
+    data, errors = InfoParaSchema().load(json)
+    
     department_id = request.args.get('department_id')
     position_id = request.args.get('position_id')
     time = request.args.get('time')
@@ -47,7 +51,7 @@ def info():
 @bp_admin.route('/info/<int:user_id>', methods=['GET'])
 @login_required
 @admin_required
-def info(user_id):
+def info_view(user_id):
     # 管理员查看学生信息
 
     info = Info.query.filter_by(Info.user_id == user_id).first()

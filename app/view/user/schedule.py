@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from flask import request
+from flask import Blueprint,request
 from flask_login import login_required
 from app.model.schedule import Schedule
 from app.model.info import Info
@@ -8,6 +8,8 @@ from app.libs.http import jsonify, error_jsonify
 from app.const.errors import InvalidParameters
 from app.view.user import bp_user
 from sqlalchemy import and_
+
+bp_info = Blueprint('schedule', __name__, url_prefix='/schedule')
 
 
 @bp_user.route('/schedule', methods=['GET'])

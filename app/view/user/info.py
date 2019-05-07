@@ -1,10 +1,13 @@
 # coding: utf-8
 
+from flask import Blueprint,request
 from flask_login import login_required, current_user
 from app.model.info import Info
 from app.libs.http import jsonify, error_jsonify
 from app.const.errors import NoStudentInfo
 from app.view.user import bp_user
+
+bp_info = Blueprint('info', __name__, url_prefix='/info')
 
 
 @bp_user.route('/info', methods=['GET'])
@@ -36,3 +39,7 @@ def info():
     }
 
     return jsonify(ret)
+
+
+def info_modify():
+    pass

@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from flask import request
+from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.model.schedule import Schedule
 from sqlalchemy import and_
@@ -10,6 +10,8 @@ from app.libs.db import session
 from app.serializer.rest import RestParaSchema
 from app.const.errors import InvalidParameters
 from app.view.user import bp_user
+
+bp_info = Blueprint('rest', __name__, url_prefix='/rest')
 
 
 @bp_user.route('/rest', methods=['POST'])

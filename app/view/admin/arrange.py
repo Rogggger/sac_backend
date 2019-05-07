@@ -1,7 +1,7 @@
 # coding: utf-8
 from datetime import datetime
 
-from flask import request
+from flask import Blueprint, request
 from flask_login import login_required
 
 from app.model.schedule import Schedule
@@ -12,6 +12,8 @@ from app.serializer.arrange import ArrangeParaSchema
 from app.libs.db import session
 from app.view.admin import bp_admin
 from app.const.errors import InvalidParameters, NoStudentInfo
+
+bp_info = Blueprint('arrange', __name__, url_prefix='/arrange')
 
 
 @bp_admin.route('/arrange', methods=['POST'])
