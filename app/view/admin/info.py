@@ -8,6 +8,7 @@ from app.model.schedule import Schedule
 from app.libs.http import jsonify, error_jsonify
 from sqlalchemy import and_
 from app.const.errors import NoStudentInfo
+from app.serializer.info import InfoParaSchema
 
 bp_admin_info = Blueprint('admin_info', __name__, url_prefix='/admin/info')
 
