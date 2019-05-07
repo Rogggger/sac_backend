@@ -9,6 +9,7 @@ from app.libs.http import jsonify, error_jsonify
 from sqlalchemy import and_
 from app.const.errors import NoStudentInfo
 from app.view.admin import bp_admin
+from app.serializer.info import InfoParaSchema
 
 bp_info = Blueprint('info', __name__, url_prefix='/info')
 
@@ -20,7 +21,7 @@ def info():
     # 管理员查看排班系统
     json = request.get_json()
     data, errors = InfoParaSchema().load(json)
-    
+
     department_id = request.args.get('department_id')
     position_id = request.args.get('position_id')
     time = request.args.get('time')

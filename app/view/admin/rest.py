@@ -46,7 +46,8 @@ def rest():
 @bp_rest.route('/<int:rest_id>', methods=['POST'])
 @login_required
 @admin_required
-def rest(rest_id):
+def rest_approval(rest_id):
+    # 管理员审批请假
     json = request.get_json()
     data, errors = RestApprovalParaSchema().load(json)
 
