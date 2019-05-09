@@ -54,15 +54,7 @@ def info_modify(user_id):
 
     user = User.query.filter_by(User.user_id == user_id).first()
 
-    if user is None:
-        user = User(user_id=user_id,
-                    username=data['username'],
-                    is_admin=0)
-        session.add(user)
-        session.commit()
-    else:
-        session.commit()
-
+    session.commit()
     info = Info.query.filter_by(user_id=user.id).first()
 
     exist = 0
