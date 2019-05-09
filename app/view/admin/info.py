@@ -8,6 +8,7 @@ from app.model.schedule import Schedule
 from app.libs.http import jsonify, error_jsonify
 from sqlalchemy import and_
 from app.const.errors import NoStudentInfo
+from app.serializer.info import InfoParaSchema
 
 bp_admin_info = Blueprint('admin_info', __name__, url_prefix='/admin/info')
 
@@ -17,11 +18,12 @@ bp_admin_info = Blueprint('admin_info', __name__, url_prefix='/admin/info')
 @admin_required
 def info():
     # 管理员查看排班系统
+    json = request.get_json()
+    data, errors = InfoParaSchema().load(json)
 
-    department_id = request.args.get('department_id')
-    position_id = request.args.get('position_id')
-    time = request.args.get('time')
-    # TODO: 这里应该对上面得到的三个变量做校验，包括类型和数值
+    department_id = data['department_id']
+    position_id = data['position_id']
+    time = data['time']
 
     info = Info.query.filter(and_(
         Info.department_id == department_id,
