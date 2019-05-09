@@ -9,7 +9,7 @@ from app.decorator.auth import admin_required
 from app.libs.http import jsonify, error_jsonify
 from app.const.errors import NoStudentInfo
 from app.const.errors import InvalidParameters
-from app.serializer.rest_approval import RestApprovalParaSchema
+from app.serializer.rest import RestApprovalParaSchema
 from app.libs.db import session
 from sqlalchemy import and_
 
