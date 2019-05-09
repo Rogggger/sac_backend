@@ -21,10 +21,9 @@ def info():
     json = request.get_json()
     data, errors = InfoParaSchema().load(json)
 
-    department_id = request.args.get('department_id')
-    position_id = request.args.get('position_id')
-    time = request.args.get('time')
-    # TODO: 这里应该对上面得到的三个变量做校验，包括类型和数值
+    department_id = data['department_id']
+    position_id = data['position_id']
+    time = data['time']
 
     info = Info.query.filter(and_(
         Info.department_id == department_id,
